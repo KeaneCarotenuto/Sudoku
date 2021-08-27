@@ -1,0 +1,2 @@
+cd /d D:\Work\MDS\Year2\Sem2\Swift\Sudoku && set SWIFTFLAGS=-sdk %SDKROOT% -resource-dir %SDKROOT%\usr\lib\swift -I %SDKROOT%\usr\lib\swift -L %SDKROOT%\usr\lib\swift\windows
+swiftc %SWIFTFLAGS% -emit-executable -o Sudoku.exe main.swift Board.swift && cls && Sudoku

@@ -1,0 +1,24 @@
+Navigate:
+cd /d D:\Work\MDS\Year2\Sem2\Swift\Sudoku
+
+Startup:
+set SWIFTFLAGS=-sdk %SDKROOT% -resource-dir %SDKROOT%\usr\lib\swift -I %SDKROOT%\usr\lib\swift -L %SDKROOT%\usr\lib\swift\windows
+
+Build:
+swiftc %SWIFTFLAGS% -emit-executable -o Sudoku.exe main.swift Board.swift
+
+Run:
+Sudoku
+
+
+
+All in one Nav + Start:
+cd /d D:\Work\MDS\Year2\Sem2\Swift\Sudoku && set SWIFTFLAGS=-sdk %SDKROOT% -resource-dir %SDKROOT%\usr\lib\swift -I %SDKROOT%\usr\lib\swift -L %SDKROOT%\usr\lib\swift\windows
+
+All in one Build + Run:
+swiftc %SWIFTFLAGS% -emit-executable -o Sudoku.exe main.swift Board.swift && cls && Sudoku
+
+
+
+
+cd /d D:\Work\MDS\Year2\Sem2\Swift\Sudoku && set SWIFTFLAGS=-sdk %SDKROOT% -resource-dir %SDKROOT%\usr\lib\swift -I %SDKROOT%\usr\lib\swift -L %SDKROOT%\usr\lib\swift\windows && swiftc %SWIFTFLAGS% -emit-executable -o Sudoku.exe main.swift Board.swift && cls && Sudoku
