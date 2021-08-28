@@ -11,33 +11,39 @@ class Board {
 
     func RandomGrid(_ totalNums : Int = 10)
     {
-        print(Color.yellow + "\nStarting New Random Board...")
-        ResetGrid();
-        let copyNums : Int = totalNums;
-        var numsLeft : Int = totalNums;
+        var reTry : Bool = true;
 
-        while numsLeft > 0 {            
-            let randX : Int = Int.random(in: 0..<dim);
-            let randY : Int = Int.random(in: 0..<dim);
-            let randNum : Int = Int.random(in: 1...dim);
+        while (reTry) {
+            reTry = false;
 
-            if (grid[randX][randY] == 0 && CheckPos(randX, randY, randNum)) {
-                grid[randX][randY] = randNum;
-                numsLeft -= 1;
+            print(Color.yellow + "\nStarting New Random Board...")
+            ResetGrid();
+            var numsLeft : Int = totalNums;
+
+            while numsLeft > 0 {            
+                let randX : Int = Int.random(in: 0..<dim);
+                let randY : Int = Int.random(in: 0..<dim);
+                let randNum : Int = Int.random(in: 1...dim);
+
+                if (grid[randX][randY] == 0 && CheckPos(randX, randY, randNum)) {
+                    grid[randX][randY] = randNum;
+                    numsLeft -= 1;
+                }
+            }
+
+            print(Color.yellow + "Testing Board...")
+            let copyGrid : [[Int]] = grid;
+            if (Solve(0,0)){
+                print(Color.green + "-Passed.")
+                grid = copyGrid;
+                print(Color.green + "Done.")
+            }
+            else {
+                print(Color.red + "-Failed.")
+                reTry = true;
             }
         }
-
-        print(Color.yellow + "Testing Board...")
-        let copyGrid : [[Int]] = grid;
-        if (Solve(0,0)){
-            print(Color.green + "-Passed.")
-            grid = copyGrid;
-            print(Color.green + "Done.")
-        }
-        else {
-            print(Color.red + "-Failed.")
-            RandomGrid(copyNums);
-        }
+        
     }
 
     func display(_ marker : Int = -1)
